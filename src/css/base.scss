@@ -1,6 +1,20 @@
 /* This is an example of how to import a partial scss file*/
-@import '_variables';
+@import "_variables";
 
 body {
-  background: $primary-background;
+  background: pink;
+}
+
+.dashboard-view {
+  border: 1px solid salmon;
+}
+
+#db-tab-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid red;
+}
+
+.db-tab {
+  border: 1px solid darkcyan;
 }

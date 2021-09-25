@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The White Lotus Resort</title>
+  </head>
+  <body>
+    <!-- <img src="./images/turing-logo.png" alt="turing logo" /> -->
+    <section class="dashboard-view">
+      <h1>Dashboard</h1>
+      <div id="db-tab-container">
+        <div class="db-tab" id="past-booking-tab">Past Bookings</div>
+        <div class="db-tab" id="future-booking-tab">Incoming Bookings</div>
+        <div class="db-tab" id="new-booking-tab">Make New Booking</div>
+      </div>
+      <div class="db-display"></div>
+      <h3 class="total-cost">Total booking cost :</h3>
+    </section>
 
-</body>
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
+  </body>
 </html>
