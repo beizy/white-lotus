@@ -9,8 +9,24 @@ const dbDisplay = document.getElementById("db-display");
 
 // DOM related functions
 const domUpdates = {
-  renderPastBookings() {
+  renderPastBookings(bookingArray) {
+    dbDisplay.innerHTML = "";
+
+    bookingArray.forEach(booking => {
+      dbDisplay.innerHTML += `
+        
+        <card class="booking-card">
+            <p>Date: ${booking.date}</p>
+            <p>Room number: ${booking.roomNumber}</p>
+        </card>
+        `;
+    });
+
     console.log("renderPastBookings starts");
+  },
+
+  renderTotalCost(bookingArray) {
+    console.log("render total cost starts");
   },
 
   renderFutureBookings() {

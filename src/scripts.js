@@ -27,30 +27,33 @@ newBookingTab.addEventListener("click", loadNewBooking);
 let allCustomers;
 let allRooms;
 let allBookings;
+let randomCustomer;
 
 function getData() {
   //   console.log("get data fires");
-  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings()]).then(promises => instantiation(promises));
+  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings(), getOneCustomer(1)]).then(promises =>
+    instantiation(promises)
+  );
 }
 
-async function instantiation(promises) {
-  allCustomers = await promises[0];
-  allRooms = await promises[1];
-  allBookings = await promises[2];
-  //   console.log(allCustomers);
-  //   console.log(allRooms);
-  //   console.log(allBookings);
+function instantiation(promises) {
+  allCustomers = promises[0];
+  allRooms = promises[1];
+  allBookings = promises[2];
+  randomCustomer = new Customer(promises[3]);
+  //   console.log("all customers", allCustomers);
+
+  //   console.log("randome customer", randomCustomer);
 }
 
 function loadPastBooking() {
   console.log("load past booking fn fires");
-  console.log(allBookings);
+  let bookings = randomCustomer.lookupBookings();
+  console.log("bookings", bookings);
+
+  domUpdates.renderPastBookings(bookings);
 }
 
-function loadFutureBooking() {
-  console.log("load future booking fires");
-}
+function loadFutureBooking() {}
 
-function loadNewBooking() {
-  console.log("load new booking fires");
-}
+function loadNewBooking() {}
