@@ -1,5 +1,6 @@
 /* This is an example of how to import a partial scss file*/
 @import "_variables";
+@import "~js-datepicker/src/datepicker";
 
 body {
   background: pink;
@@ -19,9 +20,14 @@ body {
   border: 1px solid darkcyan;
 }
 
-#db-display {
+.my-booking-display,
+.avail-rooms-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
 }
