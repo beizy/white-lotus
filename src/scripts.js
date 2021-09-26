@@ -35,6 +35,7 @@ window.addEventListener("load", getData);
 myBookingTab.addEventListener("click", loadBookings);
 newBookingTab.addEventListener("click", loadNewBooking);
 dateInput.addEventListener("focus", showDatepicker);
+typeFilter.addEventListener("click", showFilteredRooms);
 
 // global variables
 let allCustomers;
@@ -98,4 +99,10 @@ function showAvailRooms(date) {
   domUpdates.renderRooms(availRooms);
   let availRmTypes = allRooms.generateRoomTypes(availRooms);
   domUpdates.renderRoomTypes(availRmTypes);
+}
+
+function showFilteredRooms(event) {
+  console.log(event.target);
+  let filteredRooms = allRooms.filterByType(event.target.id, availRooms);
+  domUpdates.renderRooms(filteredRooms);
 }

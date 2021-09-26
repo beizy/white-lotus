@@ -50,7 +50,10 @@ const domUpdates = {
   renderRoomTypes(typeArray) {
     typeArray.forEach(type => {
       typeFilter.innerHTML += `
-      <input type="radio" class="roomtype-radio" value=${type} /> ${type}
+      <label for="${type}">
+      <input type="checkbox" class="type-tag" id="${type}" />
+      ${type}
+      </label>
       `;
     });
   },
