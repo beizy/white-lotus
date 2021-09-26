@@ -94,15 +94,23 @@ function convertDate(dateInput) {
 }
 
 function showAvailRooms(date) {
-  console.log("show avail room fires");
+  // console.log("show avail room fires");
   availRooms = allRooms.checkAvailRooms(date, allBookings);
   domUpdates.renderRooms(availRooms);
   let availRmTypes = allRooms.generateRoomTypes(availRooms);
   domUpdates.renderRoomTypes(availRmTypes);
 }
 
-function showFilteredRooms(event) {
-  console.log(event.target);
-  let filteredRooms = allRooms.filterByType(event.target.id, availRooms);
-  domUpdates.renderRooms(filteredRooms);
+function showFilteredRooms() {
+  let selectedTags = [];
+  let checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
+  checkboxes.forEach(box => {
+    selectedTags.push(box.id);
+  });
+  if (!selectedTags.length) {
+    domUpdates.renderRooms(availRooms);
+  } else {
+    let filteredRooms = selectedTags.map(tag => allRooms.filterByType(tag, availRooms)).flat();
+    domUpdates.renderRooms(filteredRooms);
+  }
 }
