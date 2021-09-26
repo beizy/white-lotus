@@ -3,7 +3,7 @@
 function getAllCustomers() {
   return fetch("http://localhost:3001/api/v1/customers")
     .then(response => response.json())
-    .then(data => data);
+    .then(data => data.customers);
 }
 
 function getOneCustomer(id) {
@@ -11,11 +11,15 @@ function getOneCustomer(id) {
 }
 
 function getAllRooms() {
-  return fetch("http://localhost:3001/api/v1/rooms").then(response => response.json());
+  return fetch("http://localhost:3001/api/v1/rooms")
+    .then(response => response.json())
+    .then(data => data.rooms);
 }
 
 function getAllBookings() {
-  return fetch("http://localhost:3001/api/v1/bookings").then(response => response.json());
+  return fetch("http://localhost:3001/api/v1/bookings")
+    .then(response => response.json())
+    .then(data => data.bookings);
 }
 
 function addBooking(customerId, date, roomNumber) {

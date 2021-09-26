@@ -1,6 +1,6 @@
 //SELECTORS
-const pastBookingTab = document.getElementById("past-booking-tab");
-const futureBookingTab = document.getElementById("future-booking-tab");
+const myBookingTab = document.getElementById("my-booking-tab");
+
 const newBookingTab = document.getElementById("new-booking-tab");
 const totalCost = document.getElementById("total-cost");
 
@@ -9,7 +9,7 @@ const dbDisplay = document.getElementById("db-display");
 
 // DOM related functions
 const domUpdates = {
-  renderPastBookings(bookingArray) {
+  renderBookings(bookingArray) {
     dbDisplay.innerHTML = "";
 
     bookingArray.forEach(booking => {
@@ -21,12 +21,13 @@ const domUpdates = {
         </card>
         `;
     });
-
-    console.log("renderPastBookings starts");
   },
 
-  renderTotalCost(bookingArray) {
-    console.log("render total cost starts");
+  renderTotalCost(cost) {
+    totalCost.innerText = "";
+    totalCost.innerText = `
+     Total Booking Cost: $ ${cost}
+    `;
   },
 
   renderFutureBookings() {
@@ -37,8 +38,7 @@ const domUpdates = {
     console.log("renderNewBooking starts");
   },
 
-  pastBookingTab,
-  futureBookingTab,
+  myBookingTab,
   newBookingTab,
   totalCost,
   dbDisplay,
