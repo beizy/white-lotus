@@ -12,7 +12,7 @@ describe.only("Rooms", () => {
     availRms = rooms.checkAvailRooms(date, bookingsData);
   });
 
-  it("Should show available rooms", () => {
+  it("Should show available rooms on a date", () => {
     assert.deepEqual(availRms, [
       {
         number: 4,
@@ -53,5 +53,10 @@ describe.only("Rooms", () => {
         costPerNight: 397.02,
       },
     ]);
+  });
+
+  it("Should be able to return all room types", () => {
+    let result = rooms.generateRoomTypes(availRms);
+    assert.deepEqual(result, ["single room", "junior suite"]);
   });
 });

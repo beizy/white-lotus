@@ -14,8 +14,18 @@
         <tab class="db-tab" id="my-booking-tab">My Bookings</tab>
         <tab class="db-tab" id="new-booking-tab">Make New Booking</tab>
       </div>
-      <div class="booking-display"></div>
-      <div class="make-new-display hidden">hell yeah</div>
+      <div class="my-booking-display"></div>
+      <div class="make-new-display hidden">
+          <form id="date-form">
+            <p>Select Check-in Date: <input type="text" id="date-input" size="15" /></p>
+          </form>
+          <form id="filter-form">
+            <p>Filter results by room type</p>
+          </form>
+          <div class='avail-rooms-box'></div>
+          <button class="book-selected-room">Book Selected Room for Selected Date</button>
+      </div>     
+      </div>
       <h3 class="total-cost"></h3>
     </section>
 

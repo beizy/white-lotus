@@ -2,18 +2,21 @@
 const myBookingTab = document.getElementById("my-booking-tab");
 const newBookingTab = document.getElementById("new-booking-tab");
 const totalCost = document.querySelector(".total-cost");
+const dateInput = document.getElementById("date-input");
+const filterForm = document.getElementById("filter-form");
 
 // CONTAINERS
-const bookingDisplay = document.querySelector(".booking-display");
+const myBookingDisplay = document.querySelector(".my-booking-display");
 const makeNewDisplay = document.querySelector(".make-new-display");
+const availRoomsBox = document.querySelector(".avail-rooms-box");
 
 // DOM related functions
 const domUpdates = {
   renderBookings(bookingArray) {
-    bookingDisplay.innerHTML = "";
+    myBookingDisplay.innerHTML = "";
 
     bookingArray.forEach(booking => {
-      bookingDisplay.innerHTML += `
+      myBookingDisplay.innerHTML += `
         
         <card class="booking-card">
             <p>Date: ${booking.date}</p>
@@ -28,6 +31,20 @@ const domUpdates = {
     totalCost.innerText = `
      Total Booking Cost: $ ${cost}
     `;
+  },
+
+  renderRooms(roomArray) {
+    availRoomsBox.innerHTML = "";
+    roomArray.forEach(room => {
+      availRoomsBox.innerHTML += `
+      <card class="room-card">
+      <p>Room number: ${room.number}</p>
+      <p>Room type: ${room.roomType}</p>
+      <p>Bed size: ${room.bedSize}</p>
+      <p>Price per night: ${room.costPerNight}</p>
+  </card>
+      `;
+    });
   },
 
   renderFutureBookings() {
@@ -49,8 +66,11 @@ const domUpdates = {
   myBookingTab,
   newBookingTab,
   totalCost,
-  bookingDisplay,
+  myBookingDisplay,
   makeNewDisplay,
+  dateInput,
+  filterForm,
+  availRoomsBox,
 };
 
 export default domUpdates;
