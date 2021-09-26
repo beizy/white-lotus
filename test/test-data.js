@@ -70,38 +70,6 @@ const roomsData = [
     numBeds: 1,
     costPerNight: 397.02,
   },
-  {
-    number: 7,
-    roomType: "single room",
-    bidet: false,
-    bedSize: "queen",
-    numBeds: 2,
-    costPerNight: 231.46,
-  },
-  {
-    number: 8,
-    roomType: "junior suite",
-    bidet: false,
-    bedSize: "king",
-    numBeds: 1,
-    costPerNight: 261.26,
-  },
-  {
-    number: 14,
-    roomType: "single room",
-    bidet: true,
-    bedSize: "queen",
-    numBeds: 1,
-    costPerNight: 200.39,
-  },
-  {
-    number: 15,
-    roomType: "suite",
-    bidet: false,
-    bedSize: "twin",
-    numBeds: 1,
-    costPerNight: 497.64,
-  },
 ];
 
 const bookingsData = [
@@ -116,7 +84,7 @@ const bookingsData = [
     id: "5fwrgu4i7k55hl6t5",
     userID: 2,
     date: "2020/01/24",
-    roomNumber: 24,
+    roomNumber: 1,
     roomServiceCharges: [],
   },
   {
@@ -150,8 +118,8 @@ const bookingsData = [
   {
     id: "5fwrgu4i7k55hl6ta",
     userID: 2,
-    date: "2020/01/11",
-    roomNumber: 9,
+    date: "2020/01/24",
+    roomNumber: 3,
     roomServiceCharges: [],
   },
   {
@@ -185,7 +153,7 @@ const bookingsData = [
   {
     id: "5fwrgu4i7k55hl6tf",
     userID: 36,
-    date: "2020/01/25",
+    date: "2020/01/24",
     roomNumber: 2,
     roomServiceCharges: [],
   },
