@@ -10,6 +10,11 @@ class Rooms {
     let result = this.rooms.filter(room => !bookedRmNums.includes(room.number));
     return result;
   }
+
+  filterByType(roomType, roomData) {
+    let result = roomData.filter(room => room.roomType === roomType);
+    return result;
+  }
 }
 
 export default Rooms;

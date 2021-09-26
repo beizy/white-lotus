@@ -6,13 +6,13 @@ import { customersData, roomsData, bookingsData } from "./test-data.js";
 describe.only("Rooms", () => {
   let rooms;
   let date = "2020/01/24";
+  let availRms;
   beforeEach(() => {
     rooms = new Rooms(roomsData);
+    availRms = rooms.checkAvailRooms(date, bookingsData);
   });
 
   it("Should show available rooms", () => {
-    let availRms = rooms.checkAvailRooms(date, bookingsData);
-
     assert.deepEqual(availRms, [
       {
         number: 4,
@@ -30,6 +30,20 @@ describe.only("Rooms", () => {
         numBeds: 2,
         costPerNight: 340.17,
       },
+      {
+        number: 6,
+        roomType: "junior suite",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 397.02,
+      },
+    ]);
+  });
+
+  it("Should filter available rooms by room type", () => {
+    let result = rooms.filterByType("junior suite", availRms);
+    assert.deepEqual(result, [
       {
         number: 6,
         roomType: "junior suite",
