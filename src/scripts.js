@@ -12,7 +12,7 @@ import { getAllCustomers, getOneCustomer, getAllRooms, getAllBookings, addBookin
 
 // dom updates
 import domUpdates from "./domUpdates";
-const { myBookingTab, newBookingTab, totalCost, dbDisplay } = domUpdates;
+const { myBookingTab, newBookingTab, totalCost, bookingDisplay, makeNewDisplay } = domUpdates;
 
 //classes
 import Customer from "./classes/Customer";
@@ -52,4 +52,9 @@ function loadBookings() {
   domUpdates.renderTotalCost(cost);
 }
 
-function loadNewBooking() {}
+function loadNewBooking() {
+  console.log("load new booking fires");
+  domUpdates.hide(bookingDisplay);
+  domUpdates.hide(totalCost);
+  domUpdates.show(makeNewDisplay);
+}

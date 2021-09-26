@@ -1,19 +1,19 @@
 //SELECTORS
 const myBookingTab = document.getElementById("my-booking-tab");
-
 const newBookingTab = document.getElementById("new-booking-tab");
-const totalCost = document.getElementById("total-cost");
+const totalCost = document.querySelector(".total-cost");
 
 // CONTAINERS
-const dbDisplay = document.getElementById("db-display");
+const bookingDisplay = document.querySelector(".booking-display");
+const makeNewDisplay = document.querySelector(".make-new-display");
 
 // DOM related functions
 const domUpdates = {
   renderBookings(bookingArray) {
-    dbDisplay.innerHTML = "";
+    bookingDisplay.innerHTML = "";
 
     bookingArray.forEach(booking => {
-      dbDisplay.innerHTML += `
+      bookingDisplay.innerHTML += `
         
         <card class="booking-card">
             <p>Date: ${booking.date}</p>
@@ -38,10 +38,19 @@ const domUpdates = {
     console.log("renderNewBooking starts");
   },
 
+  hide(element) {
+    element.classList.add("hidden");
+  },
+
+  show(element) {
+    element.classList.remove("hidden");
+  },
+
   myBookingTab,
   newBookingTab,
   totalCost,
-  dbDisplay,
+  bookingDisplay,
+  makeNewDisplay,
 };
 
 export default domUpdates;
