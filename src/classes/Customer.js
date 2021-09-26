@@ -1,5 +1,3 @@
-// import { bookingsData, roomsData } from "../../test/test-data";
-
 class Customer {
   constructor(customerInstance) {
     this.id = customerInstance.id;

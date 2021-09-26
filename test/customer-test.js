@@ -3,7 +3,7 @@ import { assert } from "chai";
 import Customer from "../src/classes/Customer";
 import { customersData, roomsData, bookingsData } from "./test-data.js";
 
-describe.only("Customer", () => {
+describe("Customer", () => {
   let customer;
   beforeEach(() => {
     customer = new Customer(customersData[0]);
