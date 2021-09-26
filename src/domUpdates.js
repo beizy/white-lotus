@@ -3,7 +3,7 @@ const myBookingTab = document.getElementById("my-booking-tab");
 const newBookingTab = document.getElementById("new-booking-tab");
 const totalCost = document.querySelector(".total-cost");
 const dateInput = document.getElementById("date-input");
-const filterForm = document.getElementById("filter-form");
+const typeFilter = document.getElementById("type-filter");
 
 // CONTAINERS
 const myBookingDisplay = document.querySelector(".my-booking-display");
@@ -47,6 +47,14 @@ const domUpdates = {
     });
   },
 
+  renderRoomTypes(typeArray) {
+    typeArray.forEach(type => {
+      typeFilter.innerHTML += `
+      <input type="radio" class="roomtype-radio" value=${type} /> ${type}
+      `;
+    });
+  },
+
   renderFutureBookings() {
     console.log("renderFutureBookings starts");
   },
@@ -69,7 +77,7 @@ const domUpdates = {
   myBookingDisplay,
   makeNewDisplay,
   dateInput,
-  filterForm,
+  typeFilter,
   availRoomsBox,
 };
 

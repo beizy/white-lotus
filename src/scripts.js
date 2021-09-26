@@ -19,7 +19,7 @@ const {
   myBookingDisplay,
   makeNewDisplay,
   dateInput,
-  filterForm,
+  typeFilter,
   availRoomsBox,
 } = domUpdates;
 
@@ -35,9 +35,8 @@ window.addEventListener("load", getData);
 myBookingTab.addEventListener("click", loadBookings);
 newBookingTab.addEventListener("click", loadNewBooking);
 dateInput.addEventListener("focus", showDatepicker);
-// dateInput.addEventListener("blur", testfn);
 
-// GLOBAL VARIABLES
+// global variables
 let allCustomers;
 let allRooms;
 let allBookings;
@@ -56,9 +55,6 @@ function instantiation(promises) {
   allRooms = new Rooms(promises[1]);
   allBookings = promises[2];
   randomCustomer = new Customer(promises[3]);
-  //   console.log("all customers", allCustomers);
-
-  //   console.log("randome customer", randomCustomer);
 }
 
 function loadBookings() {
@@ -79,8 +75,8 @@ function showDatepicker(event) {
   event.preventDefault();
   const picker = datepicker(event.target, {
     formatter: (input, date, instance) => {
-      const value = date.toLocaleDateString();
-      input.value = value;
+      let convertedDate = convertDate(date);
+      input.value = convertedDate;
     },
     onSelect: (instance, date) => {
       let convertedDate = convertDate(date);
@@ -100,5 +96,6 @@ function showAvailRooms(date) {
   console.log("show avail room fires");
   availRooms = allRooms.checkAvailRooms(date, allBookings);
   domUpdates.renderRooms(availRooms);
-  dom;
+  let availRmTypes = allRooms.generateRoomTypes(availRooms);
+  domUpdates.renderRoomTypes(availRmTypes);
 }
