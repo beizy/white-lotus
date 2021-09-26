@@ -12,15 +12,14 @@ import { getAllCustomers, getOneCustomer, getAllRooms, getAllBookings, addBookin
 
 // dom updates
 import domUpdates from "./domUpdates";
-const { pastBookingTab, futureBookingTab, newBookingTab, totalCost, dbDisplay } = domUpdates;
+const { myBookingTab, newBookingTab, totalCost, dbDisplay } = domUpdates;
 
 //classes
 import Customer from "./classes/Customer";
 
 // EVENT LISTENERS
 window.addEventListener("load", getData);
-pastBookingTab.addEventListener("click", loadPastBooking);
-futureBookingTab.addEventListener("click", loadFutureBooking);
+myBookingTab.addEventListener("click", loadBookings);
 newBookingTab.addEventListener("click", loadNewBooking);
 
 // GLOBAL VARIABLES
@@ -46,14 +45,11 @@ function instantiation(promises) {
   //   console.log("randome customer", randomCustomer);
 }
 
-function loadPastBooking() {
-  console.log("load past booking fn fires");
-  let bookings = randomCustomer.lookupBookings();
-  console.log("bookings", bookings);
-
-  domUpdates.renderPastBookings(bookings);
+function loadBookings() {
+  let bookings = randomCustomer.lookupBookings(allBookings);
+  let cost = randomCustomer.calculateCost(allRooms);
+  domUpdates.renderBookings(bookings);
+  domUpdates.renderTotalCost(cost);
 }
-
-function loadFutureBooking() {}
 
 function loadNewBooking() {}
