@@ -28,10 +28,12 @@ function addBooking(customerId, date, roomNumber) {
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       userID: customerId,
-      date: `${date}`,
+      date: date,
       roomNumber: roomNumber,
     }),
-  }).then(response => console.log(response));
+  })
+    .then(response => response.json())
+    .then(data => console.log(data));
 }
 
 function deleteBooking(bookingId) {

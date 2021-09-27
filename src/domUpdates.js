@@ -4,6 +4,7 @@ const newBookingTab = document.getElementById("new-booking-tab");
 const totalCost = document.querySelector(".total-cost");
 const dateInput = document.getElementById("date-input");
 const typeFilter = document.getElementById("type-filter");
+const bookBtn = document.querySelector(".book");
 
 // CONTAINERS
 const myBookingDisplay = document.querySelector(".my-booking-display");
@@ -37,7 +38,7 @@ const domUpdates = {
     availRoomsBox.innerHTML = "";
     roomArray.forEach(room => {
       availRoomsBox.innerHTML += `
-      <card class="room-card">
+      <card class="room-card" id="${room.number}">
       <p>Room number: ${room.number}</p>
       <p>Room type: ${room.roomType}</p>
       <p>Bed size: ${room.bedSize}</p>
@@ -82,6 +83,7 @@ const domUpdates = {
   dateInput,
   typeFilter,
   availRoomsBox,
+  bookBtn,
 };
 
 export default domUpdates;
