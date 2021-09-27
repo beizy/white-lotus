@@ -6,6 +6,7 @@ import "./css/base.scss";
 
 // images
 import "./images/turing-logo.png";
+import "./images/sunset.mp4";
 
 // api calls
 import { getAllCustomers, getOneCustomer, getAllRooms, getAllBookings, addBooking, deleteBooking } from "./apiCalls";
@@ -22,6 +23,9 @@ const {
   typeFilter,
   availRoomsBox,
   bookBtn,
+  // goBtn,
+  loginForm,
+  loginBtn
 } = domUpdates;
 
 // classes
@@ -39,6 +43,12 @@ dateInput.addEventListener("focus", showDatepicker);
 typeFilter.addEventListener("click", showFilteredRooms);
 availRoomsBox.addEventListener("click", selectRoom);
 bookBtn.addEventListener("click", bookRoom);
+loginBtn.addEventListener('click', function (){
+  event.preventDefault();
+  console.log('login buttion clicked');
+  validateLogin();
+  showDashboard();
+})
 
 // global variables
 let allCustomers;
@@ -154,3 +164,17 @@ function bookRoom() {
 }
 
 
+function validateLogin (){
+  console.log('login button fires');
+  console.log(allCustomers);
+  let usernameData = allCustomers.map(customer =>{
+    return 'customer' + customer.id
+  })
+  console.log(usernameData);
+  // console.log('after username data');
+}
+
+function showDashboard() {
+  console.log('show dashboard fires');
+  
+}

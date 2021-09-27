@@ -2,8 +2,50 @@
 @import "_variables";
 @import "~js-datepicker/src/datepicker";
 
+@mixin column-center (){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 body {
   background: pink;
+}
+
+.home-view{
+  @include column-center();
+  color:white;
+  h1 {
+    font-size: 50px;
+    font-family: $hotel-name-font;
+    font-weight: 100;
+  }
+  h1,h2 {
+    text-align: center;
+  }
+  h2 {
+    font-family: $subheader-font;
+  }
+}
+
+#login-form {
+    background-color:$form-bg;
+    margin-top: 7%;
+    @include column-center();
+  }
+
+
+
+#bg-video {
+  position: fixed;
+  left: 0;
+  top:0;
+  max-width: 100%;
+  // max-height: 100%;
+  // min-height: 50%;
+  // width: auto;
+  // height: auto;
+  z-index: -100;
 }
 
 .dashboard-view {
