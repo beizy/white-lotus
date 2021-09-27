@@ -5,6 +5,9 @@ const totalCost = document.querySelector(".total-cost");
 const dateInput = document.getElementById("date-input");
 const typeFilter = document.getElementById("type-filter");
 const bookBtn = document.querySelector(".book");
+// const goBtn = document.getElementById('go-btn');
+const loginForm = document.getElementById('login-form');
+const loginBtn = document.getElementById('login-btn')
 
 // CONTAINERS
 const myBookingDisplay = document.querySelector(".my-booking-display");
@@ -84,6 +87,9 @@ const domUpdates = {
   typeFilter,
   availRoomsBox,
   bookBtn,
+  // goBtn,
+  loginForm,
+  loginBtn
 };
 
 export default domUpdates;
