@@ -8,6 +8,7 @@
   align-items: center;
 }
 
+
 body {
   background: pink;
 }
@@ -20,20 +21,55 @@ body {
     font-family: $hotel-name-font;
     font-weight: 100;
   }
-  h1,h2 {
-    text-align: center;
-  }
+  
   h2 {
     font-family: $subheader-font;
   }
 }
 
 #login-form {
+  box-sizing: border-box;
     background-color:$form-bg;
-    margin-top: 7%;
+    width: 200px;
+    height: 260px;
     @include column-center();
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    border-radius: 5px;
+
+    ::placeholder {
+      color:$placeholder;
+    }
+    font-family: $login-form-font;
+    font-weight: 200;
+}
+
+  #username-input,#password-input, #login-btn{
+    box-sizing: border-box;
+    width: 150px;
+    height: 25px;
+    margin: 10px 0;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    outline:none;
+    background-color:$login-input-bg;
+    color:$login-input-text;
+    font-family: $login-form-font;
+    font-weight: 400;
+  }
+  
+  
+  #login-btn {
+    background-color: $login-btn-bg;
+    cursor: pointer;
+    color:$form-bg;
   }
 
+  #errorMsg-login{
+    color:firebrick;
+    text-align: center;
+  }
 
 
 #bg-video {
@@ -41,12 +77,10 @@ body {
   left: 0;
   top:0;
   max-width: 100%;
-  // max-height: 100%;
-  // min-height: 50%;
-  // width: auto;
-  // height: auto;
   z-index: -100;
 }
+
+
 
 .dashboard-view {
   border: 1px solid salmon;
