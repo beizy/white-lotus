@@ -21,6 +21,7 @@ const {
   dateInput,
   typeFilter,
   availRoomsBox,
+  bookBtn,
 } = domUpdates;
 
 // classes
@@ -36,13 +37,16 @@ myBookingTab.addEventListener("click", loadBookings);
 newBookingTab.addEventListener("click", loadNewBooking);
 dateInput.addEventListener("focus", showDatepicker);
 typeFilter.addEventListener("click", showFilteredRooms);
+availRoomsBox.addEventListener("click", selectRoom);
+bookBtn.addEventListener("click", bookRoom);
 
 // global variables
 let allCustomers;
 let allRooms;
 let allBookings;
-let randomCustomer;
+let currentCustomer;
 let availRooms;
+let chosenRoom;
 
 function getData() {
   //   console.log("get data fires");
@@ -55,18 +59,21 @@ function instantiation(promises) {
   allCustomers = promises[0];
   allRooms = new Rooms(promises[1]);
   allBookings = promises[2];
-  randomCustomer = new Customer(promises[3]);
+  currentCustomer = new Customer(promises[3]);
 }
 
 function loadBookings() {
-  let bookings = randomCustomer.lookupBookings(allBookings);
-  let cost = randomCustomer.calculateCost(allRooms);
+  domUpdates.show(myBookingDisplay);
+  domUpdates.show(totalCost);
+  domUpdates.hide(makeNewDisplay);
+  let bookings = currentCustomer.lookupBookings(allBookings);
+  let cost = currentCustomer.calculateCost(allRooms.rooms);
+  console.log(bookings);
   domUpdates.renderBookings(bookings);
   domUpdates.renderTotalCost(cost);
 }
 
 function loadNewBooking() {
-  // console.log("load new booking fires");
   domUpdates.hide(myBookingDisplay);
   domUpdates.hide(totalCost);
   domUpdates.show(makeNewDisplay);
@@ -94,8 +101,10 @@ function convertDate(dateInput) {
 }
 
 function showAvailRooms(date) {
-  // console.log("show avail room fires");
   availRooms = allRooms.checkAvailRooms(date, allBookings);
+  if (availRooms.length === 0) {
+    alert("We apologize fiercely for no available rooms at your selected date! Please choose another date.");
+  }
   domUpdates.renderRooms(availRooms);
   let availRmTypes = allRooms.generateRoomTypes(availRooms);
   domUpdates.renderRoomTypes(availRmTypes);
@@ -114,3 +123,34 @@ function showFilteredRooms() {
     domUpdates.renderRooms(filteredRooms);
   }
 }
+
+function selectRoom(event) {
+  // console.log(event.target);
+  if (event.target.tagName === "P") {
+    let clickedCardId = parseInt(event.target.parentNode.id);
+
+    chosenRoom = allRooms.rooms.find(room => room.number === clickedCardId);
+    event.target.parentNode.style.background = "white";
+    // console.log("chosen room", chosenRoom);
+  } else if (event.target.tag === "CARD") {
+    let clickedCardId = parseInt(event.target.id);
+    chosenRoom = allRooms.rooms.find(room => room.number === clickedCardId);
+    event.target.style.background = "white";
+  }
+}
+
+function bookRoom() {
+  let customerId = currentCustomer.id;
+  let date = dateInput.value;
+  let roomNum = chosenRoom.number;
+
+   addBooking(customerId, date, roomNum)
+   .then(() => getAllBookings())
+   .then(response => allBookings = response)
+   .then(() => {
+        alert("Booking successful! Check your bookings by clicking 'My bookings' tab.");
+      });
+  ;
+}
+
+
