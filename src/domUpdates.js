@@ -5,11 +5,16 @@ const totalCost = document.querySelector(".total-cost");
 const dateInput = document.getElementById("date-input");
 const typeFilter = document.getElementById("type-filter");
 const bookBtn = document.querySelector(".book");
-// const goBtn = document.getElementById('go-btn');
 const loginForm = document.getElementById('login-form');
 const loginBtn = document.getElementById('login-btn')
+const usernameInput = document.getElementById('username-input')
+const passwordInput = document.getElementById('password-input')
+const errorMsgLogin = document.getElementById('errorMsg-login')
+const video = document.getElementById('bg-video')
 
 // CONTAINERS
+const homeView = document.querySelector('.home-view')
+const dashboardView = document.querySelector('.dashboard-view')
 const myBookingDisplay = document.querySelector(".my-booking-display");
 const makeNewDisplay = document.querySelector(".make-new-display");
 const availRoomsBox = document.querySelector(".avail-rooms-box");
@@ -89,7 +94,13 @@ const domUpdates = {
   bookBtn,
   // goBtn,
   loginForm,
-  loginBtn
+  loginBtn,
+  usernameInput,
+  passwordInput,
+  errorMsgLogin,
+  homeView,
+  dashboardView,
+  video
 };
 
 export default domUpdates;
