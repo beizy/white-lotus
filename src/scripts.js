@@ -25,7 +25,11 @@ const {
   bookBtn,
   // goBtn,
   loginForm,
-  loginBtn
+  loginBtn, usernameInput,
+  passwordInput,
+  errorMsgLogin,
+  homeView,dashboardView,
+  video
 } = domUpdates;
 
 // classes
@@ -47,20 +51,20 @@ loginBtn.addEventListener('click', function (){
   event.preventDefault();
   console.log('login buttion clicked');
   validateLogin();
-  showDashboard();
+  // showDashboard();
 })
 
 // global variables
 let allCustomers;
 let allRooms;
 let allBookings;
+let usernameData
 let currentCustomer;
 let availRooms;
 let chosenRoom;
 
 function getData() {
-  //   console.log("get data fires");
-  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings(), getOneCustomer(1)]).then(promises =>
+  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings()]).then(promises =>
     instantiation(promises)
   );
 }
@@ -69,7 +73,8 @@ function instantiation(promises) {
   allCustomers = promises[0];
   allRooms = new Rooms(promises[1]);
   allBookings = promises[2];
-  currentCustomer = new Customer(promises[3]);
+  usernameData = allCustomers.map(customer =>
+   'customer' + customer.id)
 }
 
 function loadBookings() {
@@ -78,7 +83,6 @@ function loadBookings() {
   domUpdates.hide(makeNewDisplay);
   let bookings = currentCustomer.lookupBookings(allBookings);
   let cost = currentCustomer.calculateCost(allRooms.rooms);
-  console.log(bookings);
   domUpdates.renderBookings(bookings);
   domUpdates.renderTotalCost(cost);
 }
@@ -135,7 +139,6 @@ function showFilteredRooms() {
 }
 
 function selectRoom(event) {
-  // console.log(event.target);
   if (event.target.tagName === "P") {
     let clickedCardId = parseInt(event.target.parentNode.id);
 
@@ -165,16 +168,27 @@ function bookRoom() {
 
 
 function validateLogin (){
-  console.log('login button fires');
-  console.log(allCustomers);
-  let usernameData = allCustomers.map(customer =>{
-    return 'customer' + customer.id
-  })
-  console.log(usernameData);
-  // console.log('after username data');
+  let uValue = usernameInput.value
+  let pValue = passwordInput.value
+  if (!usernameData.includes(uValue) || !pValue === "overlook2021"){
+    domUpdates.show(errorMsgLogin)
+    setTimeout(()=>{
+      domUpdates.hide(errorMsgLogin)
+    },2000)
+  } else {
+    let customerId = parseInt(uValue.slice(8))
+    getOneCustomer(customerId).then(response =>
+      currentCustomer = new Customer (response)
+    ).then(()=> showDashboard())
+        
+  }
+  
+
 }
 
 function showDashboard() {
-  console.log('show dashboard fires');
+  domUpdates.hide(homeView)
+  domUpdates.hide(video)
+  domUpdates.show(dashboardView)
   
 }
