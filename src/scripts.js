@@ -44,10 +44,10 @@ typeFilter.addEventListener("click", showFilteredRooms);
 availRoomsBox.addEventListener("click", selectRoom);
 bookBtn.addEventListener("click", bookRoom);
 loginBtn.addEventListener('click', function (){
-  // event.preventDefault;
+  event.preventDefault();
   console.log('login buttion clicked');
-  validateLogin;
-  showDashboard;
+  validateLogin();
+  showDashboard();
 })
 
 // global variables
@@ -166,14 +166,15 @@ function bookRoom() {
 
 function validateLogin (){
   console.log('login button fires');
-  // console.log(allCustomers);
-  // let usernameData = allCustomers.map(customer =>{
-  //   return 'customer' + customer.id
-  // })
-  // console.log(usernameData);
-  console.log('after username data');
+  console.log(allCustomers);
+  let usernameData = allCustomers.map(customer =>{
+    return 'customer' + customer.id
+  })
+  console.log(usernameData);
+  // console.log('after username data');
 }
 
 function showDashboard() {
+  console.log('show dashboard fires');
   
 }

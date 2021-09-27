@@ -10,29 +10,31 @@
 
 body {
   background: pink;
-  color:white;
-  @include column-center();
+}
 
-  h1,h2,h3 {
-    text-align: center;
-  }
+.home-view{
+  @include column-center();
+  color:white;
   h1 {
     font-size: 50px;
     font-family: $hotel-name-font;
     font-weight: 100;
   }
-
+  h1,h2 {
+    text-align: center;
+  }
   h2 {
     font-family: $subheader-font;
   }
+}
 
-  #login-form {
+#login-form {
     background-color:$form-bg;
     margin-top: 7%;
     @include column-center();
   }
 
-}
+
 
 #bg-video {
   position: fixed;
