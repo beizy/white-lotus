@@ -23,7 +23,7 @@ function getAllBookings() {
 }
 
 function addBooking(customerId, date, roomNumber) {
-  fetch("http://localhost:3001/api/v1/bookings", {
+  return fetch("http://localhost:3001/api/v1/bookings", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
@@ -31,9 +31,8 @@ function addBooking(customerId, date, roomNumber) {
       date: date,
       roomNumber: roomNumber,
     }),
-  })
-    .then(response => response.json())
-    .then(data => console.log(data));
+  }).then(response => response.json())
+  // .then(data => console.log(data));
 }
 
 function deleteBooking(bookingId) {

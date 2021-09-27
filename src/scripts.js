@@ -68,6 +68,7 @@ function loadBookings() {
   domUpdates.hide(makeNewDisplay);
   let bookings = currentCustomer.lookupBookings(allBookings);
   let cost = currentCustomer.calculateCost(allRooms.rooms);
+  console.log(bookings);
   domUpdates.renderBookings(bookings);
   domUpdates.renderTotalCost(cost);
 }
@@ -142,13 +143,14 @@ function bookRoom() {
   let customerId = currentCustomer.id;
   let date = dateInput.value;
   let roomNum = chosenRoom.number;
-  addBooking(customerId, date, roomNum);
-  Promise.all([getAllBookings(), getOneCustomer(1)])
-    .then(promises => {
-      allBookings = promises[0];
-      currentCustomer = new Customer(promises[1]);
-    })
-    .then(() => {
-      alert("Booking successful! Check your bookings by clicking 'My bookings' tab.");
-    });
+
+   addBooking(customerId, date, roomNum)
+   .then(() => getAllBookings())
+   .then(response => allBookings = response)
+   .then(() => {
+        alert("Booking successful! Check your bookings by clicking 'My bookings' tab.");
+      });
+  ;
 }
+
+
