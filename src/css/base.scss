@@ -2,10 +2,16 @@
 @import "_variables";
 @import "~js-datepicker/src/datepicker";
 
-@mixin column-center (){
+@mixin flex-column-center (){
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@mixin flex-row-apart (){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 
@@ -14,7 +20,7 @@ body {
 }
 
 .home-view{
-  @include column-center();
+  @include flex-column-center();
   color:white;
   h1 {
     font-size: 50px;
@@ -32,7 +38,7 @@ body {
     background-color:$form-bg;
     width: 200px;
     height: 260px;
-    @include column-center();
+    @include flex-column-center();
     justify-content: flex-end;
     padding-bottom: 20px;
     border-radius: 5px;
@@ -76,37 +82,56 @@ body {
   position: fixed;
   left: 0;
   top:0;
-  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
   z-index: -100;
 }
 
 
 
 .dashboard-view {
-  border: 1px solid salmon;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: white;
+  // margin: 0;
+  // border: 1px solid salmon;
+  font-family:$login-form-font;
+  // background-image: url('./images/lotusbg.png');
+}
+
+#db-header-container {
+  @include flex-row-apart()
 }
 
 #db-tab-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border: 1px solid red;
+  border-bottom: 2px solid #999999;
 }
 
 .db-tab {
-  border: 1px solid darkcyan;
+  text-align: center;
 }
 
 .my-booking-display,
 .avail-rooms-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,200px);
+  gap: 10px;
+  justify-content: center;
+  margin:10px 0;
 }
 
-.room-card {
-  border: 1px solid blue;
+.booking-card, .room-card {
+  background-color: lightblue;
 }
+
 
 .hidden {
   display: none;
