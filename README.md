@@ -1,7 +1,7 @@
 # The White Lotus Resort
 
 ## Abstract
-This app is the deliverable for Turing shcool front-end program mod 2 final solo project "Overlook". It allows a logged-in user to see his/her room booking history and make new bookings. App name is inspired by HBO series The White Lotus.
+This app is the deliverable for Turing shcool front-end program mod 2 final solo project "Overlook". When first arriving at the site, a user should be able to log in with a username `customerxx`(where xx is the customer ID between 1 to 50) and password `overlook2021`. After logging in, the user is presented with a dashboard where he/she can see the room booking history and make new bookings. App name is inspired by HBO series The White Lotus.
 
 ## Installation
 
@@ -56,3 +56,6 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 **Project Manager**
 
 - [Robbie Jaeger](https://github.com/robbiejaeger)
+
+**Project specs**
+- [Overlook](https://frontend.turing.edu/projects/overlook.html)
