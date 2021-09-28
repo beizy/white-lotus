@@ -46,7 +46,7 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 
 ## Contributions
 
-**Developed by
+**Developed by**
 
 - [Bei Zhang (owner of this repo)](https://github.com/lokiandfengshui)
 
