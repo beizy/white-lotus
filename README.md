@@ -30,7 +30,7 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 ## Wins and Challenges
 
 **Wins**
-
+- Video background
 - Sucessful fetch GET and POST
 - Created user login form
 - High Lighthouse accessbility and performance score
