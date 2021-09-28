@@ -1,13 +1,11 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
 
 // styles
 import "./css/base.scss";
 
-// images
-import "./images/turing-logo.png";
+// media
 import "./images/sunset.mp4";
 import "./images/lotusbg.png";
+import "./images/monkeybg.png";
 
 // api calls
 import { getAllCustomers, getOneCustomer, getAllRooms, getAllBookings, addBooking, deleteBooking } from "./apiCalls";
@@ -24,7 +22,6 @@ const {
   typeFilter,
   availRoomsBox,
   bookBtn,
-  // goBtn,
   loginForm,
   greeting,
   loginBtn, usernameInput,
@@ -54,7 +51,6 @@ loginBtn.addEventListener('click', function (){
   event.preventDefault();
   console.log('login buttion clicked');
   validateLogin();
-  // showDashboard();
 })
 logout.addEventListener('click', logOutFn)
 
@@ -120,7 +116,7 @@ function convertDate(dateInput) {
 
 function showAvailRooms(date) {
   availRooms = allRooms.checkAvailRooms(date, allBookings);
-  if (availRooms.length === 0) {
+  if (!availRooms.length) {
     alert("We apologize fiercely for no available rooms at your selected date! Please choose another date.");
   }
   domUpdates.renderRooms(availRooms);
@@ -165,7 +161,7 @@ function bookRoom() {
    .then(response => allBookings = response)
    .then(() => {
         alert("Booking successful! Check your bookings by clicking 'My bookings' tab.");
-      });
+    });
   ;
 }
 
@@ -177,16 +173,13 @@ function validateLogin (){
     domUpdates.show(errorMsgLogin)
     setTimeout(()=>{
       domUpdates.hide(errorMsgLogin)
-    },2000)
+    },3000)
   } else {
     let customerId = parseInt(uValue.slice(8))
     getOneCustomer(customerId).then(response =>
       currentCustomer = new Customer (response)
     ).then(()=> showDashboard())
-        
   }
-  
-
 }
 
 function showDashboard() {
@@ -194,11 +187,10 @@ function showDashboard() {
   domUpdates.hide(video)
   domUpdates.show(dashboardView)
   domUpdates.greet(currentCustomer)
-  
 }
- function logOutFn() {
+
+function logOutFn() {
    domUpdates.hide(dashboardView)
    domUpdates.show(homeView)
    domUpdates.show(video)
-   
- }
+}

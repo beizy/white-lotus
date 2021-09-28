@@ -3,7 +3,8 @@
 function getAllCustomers() {
   return fetch("http://localhost:3001/api/v1/customers")
     .then(response => response.json())
-    .then(data => data.customers);
+    .then(data => data.customers)
+    .catch(reason => console.log(reason));
 }
 
 function getOneCustomer(id) {
