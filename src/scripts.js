@@ -7,6 +7,7 @@ import "./css/base.scss";
 // images
 import "./images/turing-logo.png";
 import "./images/sunset.mp4";
+import "./images/lotusbg.png";
 
 // api calls
 import { getAllCustomers, getOneCustomer, getAllRooms, getAllBookings, addBooking, deleteBooking } from "./apiCalls";
@@ -25,11 +26,13 @@ const {
   bookBtn,
   // goBtn,
   loginForm,
+  greeting,
   loginBtn, usernameInput,
   passwordInput,
   errorMsgLogin,
   homeView,dashboardView,
-  video
+  video,
+  logout
 } = domUpdates;
 
 // classes
@@ -53,6 +56,7 @@ loginBtn.addEventListener('click', function (){
   validateLogin();
   // showDashboard();
 })
+logout.addEventListener('click', logOutFn)
 
 // global variables
 let allCustomers;
@@ -78,9 +82,9 @@ function instantiation(promises) {
 }
 
 function loadBookings() {
+  domUpdates.hide(makeNewDisplay);
   domUpdates.show(myBookingDisplay);
   domUpdates.show(totalCost);
-  domUpdates.hide(makeNewDisplay);
   let bookings = currentCustomer.lookupBookings(allBookings);
   let cost = currentCustomer.calculateCost(allRooms.rooms);
   domUpdates.renderBookings(bookings);
@@ -143,12 +147,11 @@ function selectRoom(event) {
     let clickedCardId = parseInt(event.target.parentNode.id);
 
     chosenRoom = allRooms.rooms.find(room => room.number === clickedCardId);
-    event.target.parentNode.style.background = "white";
-    // console.log("chosen room", chosenRoom);
+    event.target.parentNode.style.background = "pink";
   } else if (event.target.tag === "CARD") {
     let clickedCardId = parseInt(event.target.id);
     chosenRoom = allRooms.rooms.find(room => room.number === clickedCardId);
-    event.target.style.background = "white";
+    event.target.style.background = "pink";
   }
 }
 
@@ -190,5 +193,12 @@ function showDashboard() {
   domUpdates.hide(homeView)
   domUpdates.hide(video)
   domUpdates.show(dashboardView)
+  domUpdates.greet(currentCustomer)
   
 }
+ function logOutFn() {
+   domUpdates.hide(dashboardView)
+   domUpdates.show(homeView)
+   domUpdates.show(video)
+   
+ }

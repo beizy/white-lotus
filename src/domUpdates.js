@@ -11,6 +11,8 @@ const usernameInput = document.getElementById('username-input')
 const passwordInput = document.getElementById('password-input')
 const errorMsgLogin = document.getElementById('errorMsg-login')
 const video = document.getElementById('bg-video')
+const greeting = document.getElementById('greeting')
+const logout = document.getElementById('logout')
 
 // CONTAINERS
 const homeView = document.querySelector('.home-view')
@@ -67,6 +69,12 @@ const domUpdates = {
     });
   },
 
+  greet(customerObj){
+    greeting.innerText = `Welcome ${customerObj.name}, here is your dashboard`
+
+
+  },
+
   renderFutureBookings() {
     console.log("renderFutureBookings starts");
   },
@@ -100,7 +108,9 @@ const domUpdates = {
   errorMsgLogin,
   homeView,
   dashboardView,
-  video
+  video,
+  greeting,
+  logout
 };
 
 export default domUpdates;
