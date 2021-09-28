@@ -47,11 +47,11 @@ dateInput.addEventListener("focus", showDatepicker);
 typeFilter.addEventListener("click", showFilteredRooms);
 availRoomsBox.addEventListener("click", selectRoom);
 bookBtn.addEventListener("click", bookRoom);
-loginBtn.addEventListener('click', function (){
-  event.preventDefault();
-  console.log('login buttion clicked');
-  validateLogin();
-})
+// loginBtn.addEventListener('click', function (){
+//   event.preventDefault();
+//   console.log('login buttion clicked');
+//   validateLogin();
+// })
 logout.addEventListener('click', logOutFn)
 
 // global variables
@@ -64,7 +64,7 @@ let availRooms;
 let chosenRoom;
 
 function getData() {
-  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings()]).then(promises =>
+  Promise.all([getAllCustomers(), getAllRooms(), getAllBookings(),getOneCustomer(1)]).then(promises =>
     instantiation(promises)
   );
 }
@@ -73,8 +73,9 @@ function instantiation(promises) {
   allCustomers = promises[0];
   allRooms = new Rooms(promises[1]);
   allBookings = promises[2];
-  usernameData = allCustomers.map(customer =>
-   'customer' + customer.id)
+  currentCustomer = new Customer(promises[3])
+  // usernameData = allCustomers.map(customer =>
+  //  'customer' + customer.id)
 }
 
 function loadBookings() {
