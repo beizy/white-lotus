@@ -70,7 +70,7 @@ const domUpdates = {
   },
 
   greet(customerObj){
-    greeting.innerText = `Welcome ${customerObj.name}, here is your dashboard`
+    greeting.innerText = `Welcome to your dashboard, ${customerObj.name}!`
 
 
   },
