@@ -13,7 +13,10 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 6. Start messing around on the page!
 
 ## Screenshots
-
+#### Log in page
+![Screen Shot 2021-09-28 at 6 16 29 PM](https://user-images.githubusercontent.com/73845209/135173380-d6a91394-739c-4d63-96b3-80f9652c0346.png)
+#### Dashboard
+![Screen Shot 2021-09-28 at 6 17 11 PM](https://user-images.githubusercontent.com/73845209/135173428-8dc830cd-abd3-4d53-a107-4adce5879a5b.png)
 
 
 ## Technology
