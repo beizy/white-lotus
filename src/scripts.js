@@ -66,7 +66,9 @@ let chosenRoom;
 function getData() {
   Promise.all([getAllCustomers(), getAllRooms(), getAllBookings()]).then(promises =>
     instantiation(promises)
-  );
+  ).catch(reason => {
+    alert("Oops, Server is taking a break")
+  });
 }
 
 function instantiation(promises) {

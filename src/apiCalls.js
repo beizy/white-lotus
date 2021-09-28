@@ -32,7 +32,12 @@ function addBooking(customerId, date, roomNumber) {
       date: date,
       roomNumber: roomNumber,
     }),
-  }).then(response => response.json())
+  }).then(response => {
+    if (!response.ok){
+      throw new Error (`The following technical issue occured: ${response.status} ${response.status.text}`)
+    }
+    return response.json()
+  }).catch(reason => alert(reason))
   // .then(data => console.log(data));
 }
 
