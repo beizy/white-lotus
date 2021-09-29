@@ -3,7 +3,7 @@ import { assert } from "chai";
 import Rooms from "../src/classes/Rooms";
 import { customersData, roomsData, bookingsData } from "./test-data.js";
 
-describe.only("Rooms", () => {
+describe("Rooms", () => {
   let rooms;
   let date = "2020/01/24";
   let availRms;

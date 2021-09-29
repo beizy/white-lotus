@@ -77,7 +77,7 @@ const bookingsData = [
     id: "5fwrgu4i7k55hl6sz",
     userID: 1,
     date: "2020/04/22",
-    roomNumber: 15,
+    roomNumber: 2,
     roomServiceCharges: [],
   },
   {
@@ -112,7 +112,7 @@ const bookingsData = [
     id: "5fwrgu4i7k55hl6t9",
     userID: 1,
     date: "2020/02/14",
-    roomNumber: 14,
+    roomNumber: 3,
     roomServiceCharges: [],
   },
   {

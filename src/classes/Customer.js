@@ -24,7 +24,7 @@ class Customer {
     this.bookedRoomNumbers = bookedRmNums;
 
     let result = this.bookedRoomNumbers
-      .reduce((acc, number) => (acc += roomData.find(room => room.number === number).costPerNight), 0)
+      .reduce((acc, number) => acc += roomData.find(room => room.number === number).costPerNight, 0)
       .toLocaleString();
     this.totalCost = result;
     return result;

@@ -8,7 +8,7 @@ describe("Customer", () => {
   beforeEach(() => {
     customer = new Customer(customersData[0]);
     customer.lookupBookings(bookingsData);
-    customer.lookupBookedRooms();
+    // customer.lookupBookedRooms();
     customer.calculateCost(roomsData);
   });
 
@@ -26,14 +26,14 @@ describe("Customer", () => {
         id: "5fwrgu4i7k55hl6sz",
         userID: 1,
         date: "2020/04/22",
-        roomNumber: 15,
+        roomNumber: 2,
         roomServiceCharges: [],
       },
       {
         id: "5fwrgu4i7k55hl6t9",
         userID: 1,
         date: "2020/02/14",
-        roomNumber: 14,
+        roomNumber: 3,
         roomServiceCharges: [],
       },
     ]);
@@ -44,6 +44,6 @@ describe("Customer", () => {
   // });
 
   it("Should be able to see the total cost of all bookings", () => {
-    assert.equal(customer.totalCost, 698.03);
+    assert.equal(customer.totalCost, 968.52);
   });
 });
