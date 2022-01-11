@@ -29,7 +29,8 @@
     "test": "mochapack 'test/**/*.js'",
     "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "gh-pages": "^3.2.3"
   },
   "dependencies": {
     "js-datepicker": "^5.18.0"
