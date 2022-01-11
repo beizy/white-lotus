@@ -5,12 +5,10 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 
 ## Installation
 
-1. Clone down [client side app](https://github.com/lokiandfengshui/white-lotus) to your local machine.
-2. Clone down [local server](https://github.com/turingschool-examples/webpack-starter-kit) to a different folder.
-3. Run `npm install` on your root folder of the two cloned down repo.
-4. In local server folder, run `npm start` to launch local server.
-5. In client app folder, run `npm start` and visit the opened port in browser.
-6. Start messing around on the page!
+1. Clone down [this repo](https://github.com/beizy/white-lotus) to your local machine.
+2. Run `npm install` on your root folder of the cloned down repo.
+3. Run `npm start` and visit the opened port in browser.
+
 
 ## Screenshots
 
@@ -25,7 +23,6 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 - SCSS
 - JavaScript
 - Mocha and chai testing framework
-- Webpack
 - js-datapicker npm library
 
 ## Wins and Challenges
