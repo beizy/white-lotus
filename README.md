@@ -5,7 +5,7 @@ This app is the deliverable for Turing shcool front-end program mod 2 final solo
 
 ## Installation
 
-1. Clone down [this repo](https://github.com/beizy/white-lotus) to your local machine.
+1. Clone down [this repo](https://github.com/beizy/top-stories) to your local machine.
 2. Run `npm install` on your root folder of the cloned down repo.
 3. Run `npm start` and visit the opened port in browser.
 
